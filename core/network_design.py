@@ -7,9 +7,8 @@ class NetworkDesigner:
     def __init__(self):
         # Load pretrained land cover model
         self.land_cover_model = AutoModelForImageSegmentation.from_pretrained(
-            "microsoft/landcover-ai"
-        )
-    
+    "microsoft/beit-base-finetuned-ade-640-640"
+)
     def load_schools_data(self, country_code="ETH"):
         """Fetch Giga schools data from API"""
         return gpd.read_file(

@@ -1,6 +1,11 @@
+from curses.ascii import alt
 import streamlit as st
+import geopandas as gpd
 import folium
-from core import NetworkDesigner, ResourceOptimizer, ProcurementAnalyzer
+from core.network_design import NetworkDesigner
+from core.resource_alloc import ResourceOptimizer
+from core.policy_analyzer import ProcurementAnalyzer
+from streamlit_folium import st_folium
 
 st.set_page_config(layout="wide")
 designer = NetworkDesigner()
