@@ -1,0 +1,21 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Data
+data/
+assets/
+
+# Secrets
+.env
+.streamlit/
+
+# IDE
+.vscode/
+.idea/
+
+# Hugging Face
+.huggingface/
