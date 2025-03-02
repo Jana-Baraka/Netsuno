@@ -1,14 +1,15 @@
 import geopandas as gpd
 import rasterio
 from huggingface_hub import hf_hub_download
-from transformers import AutoModelForImageSegmentation
+from transformers import BeitForSemanticSegmentation  # Changed import
 
 class NetworkDesigner:
     def __init__(self):
-        # Load pretrained land cover model
-        self.land_cover_model = AutoModelForImageSegmentation.from_pretrained(
-    "microsoft/beit-base-finetuned-ade-640-640"
-)
+        # Load correct BEiT segmentation model
+        self.land_cover_model = BeitForSemanticSegmentation.from_pretrained(
+            "microsoft/beit-base-finetuned-ade-640-640"
+        )
+    
     def load_schools_data(self, country_code="ETH"):
         """Fetch Giga schools data from API"""
         return gpd.read_file(
@@ -21,7 +22,7 @@ class NetworkDesigner:
             schools_gdf, 
             cell_towers_gdf,
             how="left",
-            max_distance=5000  # 5km radius
+            max_distance=5000
         ).query("distance > 5000")
     
     def classify_terrain(self, sentinel2_tif_path):

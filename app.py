@@ -1,4 +1,4 @@
-from curses.ascii import alt
+import altair as alt
 import streamlit as st
 import geopandas as gpd
 import folium
